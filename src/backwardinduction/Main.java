@@ -13,18 +13,12 @@ import org.jgrapht.ext.JGraphModelAdapter;
 import org.jgrapht.graph.*;
 
 public class Main {
-	//public static SimpleGraph<Node,Edge> tree = new SimpleGraph<Node,Edge>(Edge.class);
 	public static SimpleGraph tree = new SimpleGraph(DefaultEdge.class);
-	private static JGraphModelAdapter m_jgAdapter = new JGraphModelAdapter(tree);
+	
+
+    public static JGraphModelAdapter jgraphmodeladapter;
 	
 	public static void main(String[] args){
-
-		
-		
-		Node egy = new Node("egy");
-		Node ketto = new Node("ketto");
-		Node harom = new Node("harom");
-		Node negy = new Node("negy");
 		
 		tree.addVertex("egy");
 		tree.addVertex("ketto");
@@ -36,28 +30,23 @@ public class Main {
 		tree.addEdge("egy", "harom");
 		tree.addEdge("egy", "negy");
 		
+		
+		jgraphmodeladapter = new JGraphModelAdapter(tree);
+		
         
         
         JGraphAdapterDemo applet = new JGraphAdapterDemo(  );
         applet.init(  );
 
         JFrame frame = new JFrame(  );
-        frame.setSize(400, 400);
-        JGraphModelAdapter jgraphmodeladapter = new JGraphModelAdapter(tree);
-        jgraphmodeladapter.createDefaultVertexAttributes();
+        frame.setSize(800, 600);
         JGraph jgraph = new JGraph(jgraphmodeladapter);
-        frame.getContentPane().add(jgraph);
-        frame.show();
-        
-        /*frame.getContentPane(  ).add( applet );
-        frame.setTitle( "JGraphT Adapter to JGraph Demo" );
+        frame.setTitle( "Backward Induction" );
         frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-        frame.pack(  );
-        frame.show(  );*/
-		
+        frame.getContentPane().add(jgraph);
+        frame.setVisible(true);
 		
 	}
-	
 	
 
 }
