@@ -1,7 +1,10 @@
 package backwardinduction;
 import java.awt.Rectangle;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 import javax.swing.JFrame;
 
@@ -19,10 +22,10 @@ public class Main {
     public static JGraphModelAdapter jgraphmodeladapter;
 	
 	public static void main(String[] args){
-		Node egy = new Node("egy");
-		Node ketto = new Node("ketto");
-		Node harom = new Node("harom");
-		Node negy = new Node("negy");
+		Node egy = new Node(1);
+		Node ketto = new Node(2);
+		Node harom = new Node(3);
+		Node negy = new Node(4);
 		
 		tree.addVertex(egy);
 		tree.addVertex(ketto);
@@ -47,6 +50,9 @@ public class Main {
         frame.setVisible(true);
         
         System.out.println(Boolean.toString(isLeaf(ketto)));
+        
+        System.out.println(getBestValueLeaf(getLeafs()));
+        
 
        
 		
@@ -56,6 +62,32 @@ public class Main {
 		if (tree.outgoingEdgesOf(n).isEmpty())
 			return true;
 		return false;
+	}
+	
+	public static Set<Node> getLeafs(){
+		Set<Node> leafs = new HashSet<Node>();
+		for(Iterator<Node> it = tree.vertexSet().iterator(); it.hasNext(); ){
+			Node n = it.next();
+			if (isLeaf(n))
+				leafs.add(n);
+		}
+		return leafs;
+			
+	}
+	
+	public static Node getBestValueLeaf(Set<Node> leafs){
+		Iterator<Node> it1 = leafs.iterator();
+		double max =it1.next().getValue();
+		Node best = new Node();
+		for(Iterator<Node> it = leafs.iterator(); it.hasNext(); ){
+			Node n = it.next();
+			if(n.getValue()>=max){
+				best = n;
+				max=n.getValue();
+			}
+		}
+		return best;
+		
 	}
 	
 

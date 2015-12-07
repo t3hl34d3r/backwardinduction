@@ -13,8 +13,16 @@ public class Node {
 		return Double.toString(value);
 	}
 	
+	Node(){
+		
+	}
+	
 	Node(String asd){
 		information = asd;
+	}
+	
+	Node(double n){
+		value = n;
 	}
 	
 	public double getValue(){
