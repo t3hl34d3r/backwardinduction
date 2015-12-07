@@ -13,22 +13,28 @@ import org.jgrapht.ext.JGraphModelAdapter;
 import org.jgrapht.graph.*;
 
 public class Main {
-	public static SimpleGraph tree = new SimpleGraph(DefaultEdge.class);
+	public static SimpleDirectedGraph<Node,Edge> tree = new SimpleDirectedGraph<Node,Edge>(Edge.class);
 	
 
     public static JGraphModelAdapter jgraphmodeladapter;
 	
 	public static void main(String[] args){
+		Node egy = new Node("egy");
+		Node ketto = new Node("ketto");
+		Node harom = new Node("harom");
+		Node negy = new Node("negy");
 		
-		tree.addVertex("egy");
-		tree.addVertex("ketto");
-		tree.addVertex("harom");
-		tree.addVertex("negy");
 		
 		
-		tree.addEdge("egy", "ketto");
-		tree.addEdge("egy", "harom");
-		tree.addEdge("egy", "negy");
+		tree.addVertex(egy);
+		tree.addVertex(ketto);
+		tree.addVertex(harom);
+		tree.addVertex(negy);
+		
+		
+		tree.addEdge(egy, ketto);
+		tree.addEdge(egy, harom);
+		tree.addEdge(egy, negy);
 		
 		
 		jgraphmodeladapter = new JGraphModelAdapter(tree);
@@ -45,6 +51,8 @@ public class Main {
         frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
         frame.getContentPane().add(jgraph);
         frame.setVisible(true);
+
+        System.out.println(tree.incomingEdgesOf(negy));
 		
 	}
 	
