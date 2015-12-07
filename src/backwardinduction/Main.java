@@ -24,22 +24,16 @@ public class Main {
 		Node harom = new Node("harom");
 		Node negy = new Node("negy");
 		
-		
-		
 		tree.addVertex(egy);
 		tree.addVertex(ketto);
 		tree.addVertex(harom);
-		tree.addVertex(negy);
-		
+		tree.addVertex(negy);		
 		
 		tree.addEdge(egy, ketto);
 		tree.addEdge(egy, harom);
-		tree.addEdge(egy, negy);
+		tree.addEdge(egy, negy);		
 		
-		
-		jgraphmodeladapter = new JGraphModelAdapter(tree);
-		
-        
+		jgraphmodeladapter = new JGraphModelAdapter(tree);        
         
         JGraphAdapterDemo applet = new JGraphAdapterDemo(  );
         applet.init(  );
@@ -51,9 +45,17 @@ public class Main {
         frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
         frame.getContentPane().add(jgraph);
         frame.setVisible(true);
+        
+        System.out.println(Boolean.toString(isLeaf(ketto)));
 
-        System.out.println(tree.incomingEdgesOf(negy));
+       
 		
+	}
+	
+	public static boolean isLeaf(Node n){
+		if (tree.outgoingEdgesOf(n).isEmpty())
+			return true;
+		return false;
 	}
 	
 

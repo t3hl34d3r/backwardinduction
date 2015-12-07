@@ -17,6 +17,13 @@ public class Node {
 		information = asd;
 	}
 	
+	public double getValue(){
+		return value;
+	}
+	
+	public void setValue(int v){
+		value = v;
+	}
 	
 	
 }
