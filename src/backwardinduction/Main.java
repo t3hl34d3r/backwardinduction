@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.swing.JFrame;
+import javax.swing.tree.TreeNode;
 
 import org.jgraph.JGraph;
 import org.jgraph.graph.DefaultGraphCell;
@@ -53,6 +54,8 @@ public class Main {
         
         System.out.println(getBestValueLeaf(getLeafs()));
         
+        System.out.println(getParent(ketto));
+        
 
        
 		
@@ -87,8 +90,10 @@ public class Main {
 			}
 		}
 		return best;
-		
 	}
 	
-
+	public static Node getParent(Node n){
+		Node parent = tree.getEdgeSource(tree.incomingEdgesOf(n).iterator().next());		
+		return parent;
+	}
 }
