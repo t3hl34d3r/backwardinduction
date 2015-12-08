@@ -39,7 +39,7 @@ public class Main {
 		tree.addEdge(egy, harom);
 		tree.addEdge(egy, negy);		*/
 		
-		double p = 5;
+		double p = 10;
 		double b = -3;
 		
 		Node a = new Node("a");
@@ -208,6 +208,14 @@ public class Main {
         frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
         frame.getContentPane().add(jgraph);
         frame.setVisible(true);
+        
+        Node best = getBestOutcomeLeaf(getLeafs(),1);
+        System.out.println(best);
+        Node next = best;
+        while (getParent(next) != null){
+        	next = getParent(next);
+        	System.out.println(next);
+        }
 
        
 		
@@ -230,22 +238,27 @@ public class Main {
 			
 	}
 	
-	public static Node getBestValueLeaf(Set<Node> leafs){
+	public static Node getBestOutcomeLeaf(Set<Node> leafs, int player){
 		Iterator<Node> it1 = leafs.iterator();
-		double max =it1.next().getValue();
+		double max =it1.next().getOutcome()[player];
 		Node best = new Node();
 		for(Iterator<Node> it = leafs.iterator(); it.hasNext(); ){
 			Node n = it.next();
-			if(n.getValue()>=max){
+			if(n.getOutcome()[player]>=max){
 				best = n;
-				max=n.getValue();
+				max=n.getOutcome()[player];
 			}
 		}
 		return best;
 	}
 	
 	public static Node getParent(Node n){
-		Node parent = tree.getEdgeSource(tree.incomingEdgesOf(n).iterator().next());		
-		return parent;
+		Iterator<Edge> it = tree.incomingEdgesOf(n).iterator();
+		if (it.hasNext()){
+			Edge edge = it.next();
+			Node parent = tree.getEdgeSource(edge);
+			return parent;
+		}
+		return null;
 	}
 }
