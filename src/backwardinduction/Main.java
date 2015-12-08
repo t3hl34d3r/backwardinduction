@@ -24,11 +24,13 @@ public class Main {
 
     public static JGraphModelAdapter jgraphmodeladapter;
     
-    
+   
 	
 	public static void main(String[] args){		
 		double p = 10;
 		double b = -3;
+		
+		int playerNumber = 1;
 		
 		Node a = new Node("a");
 		tree.addVertex(a);
@@ -274,13 +276,18 @@ public class Main {
         frame.getContentPane().add(jgraph);
         frame.setVisible(true);
         
-        Node best = getBestOutcomeLeaf(getLeafs(),0);
+        Node best = getBestOutcomeLeaf(getLeafs(),playerNumber);
+        
+        System.out.println("Best possible outcome, for "+playerNumber+":");
+        
         System.out.println(best);
         Node next = best;
         while (getParent(next) != null){
         	next = getParent(next);
         	System.out.println(next);
         }
+        
+        System.out.println("Here he win "+p);
 
        
 		
