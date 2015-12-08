@@ -1,5 +1,6 @@
 package backwardinduction;
 import java.awt.Rectangle;
+import java.awt.geom.Rectangle2D;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -10,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.tree.TreeNode;
 
 import org.jgraph.JGraph;
+import org.jgraph.graph.AttributeMap;
 import org.jgraph.graph.DefaultGraphCell;
 import org.jgraph.graph.GraphConstants;
 import org.jgrapht.demo.JGraphAdapterDemo;
@@ -196,20 +198,63 @@ public class Main {
 		
 		
 		
-		jgraphmodeladapter = new JGraphModelAdapter(tree);        
+		
+		jgraphmodeladapter = new JGraphModelAdapter(tree);
+		
+		
+		JFrame frame = new JFrame(  );
+        frame.setSize(1550, 600);
+        frame.setResizable(false);
         
-        JGraphAdapterDemo applet = new JGraphAdapterDemo(  );
-        applet.init(  );
 
-        JFrame frame = new JFrame(  );
-        frame.setSize(800, 600);
+		
+		positionVertexAt(a,750,0);
+		
+		positionVertexAt(b1,375,75);
+		positionVertexAt(b2,1125,75);
+		
+		positionVertexAt(c1,188,225);
+		positionVertexAt(c2,563,225);
+		positionVertexAt(c3,938,225);
+		positionVertexAt(c4,1314,225);
+		
+
+		positionVertexAt(d1,94,375);
+		positionVertexAt(d2,94*3,375);
+		positionVertexAt(d3,94*5,375);
+		positionVertexAt(d4,94*7,375);
+		positionVertexAt(d5,94*9,375);
+		positionVertexAt(d6,94*11,375);
+		positionVertexAt(d7,94*13,375);
+		positionVertexAt(d8,94*15,375);
+		
+		
+		positionVertexAt(e1,47,525);
+		positionVertexAt(e2,3*47,525);
+		positionVertexAt(e3,5*47,525);
+		positionVertexAt(e4,7*47,525);
+		positionVertexAt(e5,9*47,525);
+		positionVertexAt(e6,11*47,525);
+		positionVertexAt(e7,13*47,525);
+		positionVertexAt(e8,15*47,525);
+		positionVertexAt(e9,17*47,525);
+		positionVertexAt(e10,19*47,525);
+		positionVertexAt(e11,21*47,525);
+		positionVertexAt(e12,23*47,525);
+		positionVertexAt(e13,25*47,525);
+		positionVertexAt(e14,27*47,525);
+		positionVertexAt(e15,29*47,525);
+		positionVertexAt(e16,31*47,525);
+		
+        
+        
         JGraph jgraph = new JGraph(jgraphmodeladapter);
         frame.setTitle( "Backward Induction" );
         frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
         frame.getContentPane().add(jgraph);
         frame.setVisible(true);
         
-        Node best = getBestOutcomeLeaf(getLeafs(),1);
+        Node best = getBestOutcomeLeaf(getLeafs(),0);
         System.out.println(best);
         Node next = best;
         while (getParent(next) != null){
@@ -261,4 +306,22 @@ public class Main {
 		}
 		return null;
 	}
+	
+	private static void positionVertexAt(Object vertex, int x, int y){
+		DefaultGraphCell cell = jgraphmodeladapter.getVertexCell(vertex);
+		AttributeMap attr = cell.getAttributes();
+		Rectangle2D bounds = GraphConstants.getBounds(attr);
+		
+		Rectangle2D newBounds = new Rectangle2D.Double(x,y,bounds.getWidth(),bounds.getHeight());
+		
+		GraphConstants.setBounds(attr, newBounds);
+		
+		org.jgraph.graph.AttributeMap cellAttr = new AttributeMap();
+		cellAttr.put(cell, attr);
+		jgraphmodeladapter.edit(cellAttr,null,null,null);
+		
+
+		
+	}
+	
 }
