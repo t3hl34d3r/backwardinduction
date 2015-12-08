@@ -26,21 +26,7 @@ public class Main {
     
     
 	
-	public static void main(String[] args){
-		/*Node egy = new Node(1);
-		Node ketto = new Node(2);
-		Node harom = new Node(3);
-		Node negy = new Node(4);
-		
-		tree.addVertex(egy);
-		tree.addVertex(ketto);
-		tree.addVertex(harom);
-		tree.addVertex(negy);		
-		
-		tree.addEdge(egy, ketto);
-		tree.addEdge(egy, harom);
-		tree.addEdge(egy, negy);		*/
-		
+	public static void main(String[] args){		
 		double p = 10;
 		double b = -3;
 		
@@ -158,44 +144,78 @@ public class Main {
 		double[] e16outcome = {p+b,p+b,p+b,p+b};
 		e16.setOutcome(e16outcome);
 		
-		tree.addEdge(a, b1);
-		tree.addEdge(a, b2);
-		
-		tree.addEdge(b1,c1);
-		tree.addEdge(b1, c2);
-		tree.addEdge(b2, c3);
-		tree.addEdge(b2,c4);
-		
-		tree.addEdge(c1,d1);
-		tree.addEdge(c1, d2);
-		tree.addEdge(c2, d3);
-		tree.addEdge(c2, d4);
-		tree.addEdge(c3, d5);
-		tree.addEdge(c3, d6);
-		tree.addEdge(c4, d7);
-		tree.addEdge(c4, d8);
-		
-		tree.addEdge(d1, e1);
-		tree.addEdge(d1, e2);
-		tree.addEdge(d2, e3);
-		tree.addEdge(d2, e4);
-		tree.addEdge(d3, e5);
-		tree.addEdge(d3, e6);
-		tree.addEdge(d4, e7);
-		tree.addEdge(d4, e8);
-		tree.addEdge(d5, e9);
-		tree.addEdge(d5, e10);
-		tree.addEdge(d6, e11);
-		tree.addEdge(d6, e12);
-		tree.addEdge(d7, e13);
-		tree.addEdge(d7, e14);
-		tree.addEdge(d8, e15);
-		tree.addEdge(d8, e16);
 		
 		
+		Edge noEdge = new Edge("no");
+		Edge yesEdge = new Edge("yes");
+		
+		tree.addEdge(a, b1,noEdge);
+		tree.addEdge(a, b2,yesEdge);
 		
 		
+		Edge noEdgeb1=new Edge("no");
+		Edge yesEdgeb1=new Edge("yes");
+		Edge noEdgeb2=new Edge("no");
+		Edge yesEdgeb2=new Edge("yes");
+	
+		tree.addEdge(b1,c1,noEdgeb1);
+		tree.addEdge(b1, c2,yesEdgeb1);
+		tree.addEdge(b2, c3,noEdgeb2);
+		tree.addEdge(b2,c4,yesEdgeb2);
 		
+		Edge noEdgec1 = new Edge("no");
+		Edge yesEdgec1 = new Edge("yes");
+		Edge noEdgec2 = new Edge("no");
+		Edge yesEdgec2 = new Edge("yes");
+		Edge noEdgec3 = new Edge("no");
+		Edge yesEdgec3 = new Edge("yes");
+		Edge noEdgec4 = new Edge("no");
+		Edge yesEdgec4 = new Edge("yes");
+		
+		
+		tree.addEdge(c1,d1,noEdgec1);
+		tree.addEdge(c1, d2,yesEdgec1);
+		tree.addEdge(c2, d3,noEdgec2);
+		tree.addEdge(c2, d4,yesEdgec2);
+		tree.addEdge(c3, d5,noEdgec3);
+		tree.addEdge(c3, d6,yesEdgec3);
+		tree.addEdge(c4, d7,noEdgec4);
+		tree.addEdge(c4, d8,yesEdgec4);
+		
+		
+		Edge noEdged1 = new Edge("no");
+		Edge yesEdged1 = new Edge("yes");
+		Edge noEdged2 = new Edge("no");
+		Edge yesEdged2 = new Edge("yes");
+		Edge noEdged3 = new Edge("no");
+		Edge yesEdged3 = new Edge("yes");
+		Edge noEdged4 = new Edge("no");
+		Edge yesEdged4 = new Edge("yes");
+		Edge noEdged5 = new Edge("no");
+		Edge yesEdged5 = new Edge("yes");
+		Edge noEdged6 = new Edge("no");
+		Edge yesEdged6 = new Edge("yes");
+		Edge noEdged7 = new Edge("no");
+		Edge yesEdged7 = new Edge("yes");
+		Edge noEdged8 = new Edge("no");
+		Edge yesEdged8 = new Edge("yes");
+		
+		tree.addEdge(d1, e1,noEdged1);
+		tree.addEdge(d1, e2,yesEdged1);
+		tree.addEdge(d2, e3,noEdged2);
+		tree.addEdge(d2, e4,yesEdged2);
+		tree.addEdge(d3, e5,noEdged3);
+		tree.addEdge(d3, e6,yesEdged3);
+		tree.addEdge(d4, e7,noEdged4);
+		tree.addEdge(d4, e8,yesEdged4);
+		tree.addEdge(d5, e9,noEdged5);
+		tree.addEdge(d5, e10,yesEdged5);
+		tree.addEdge(d6, e11,noEdged6);
+		tree.addEdge(d6, e12,yesEdged6);
+		tree.addEdge(d7, e13,noEdged7);
+		tree.addEdge(d7, e14,yesEdged7);
+		tree.addEdge(d8, e15,noEdged8);
+		tree.addEdge(d8, e16,yesEdged8);	
 		
 		
 		
