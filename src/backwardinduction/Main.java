@@ -1,10 +1,12 @@
 package backwardinduction;
 import java.awt.Rectangle;
 import java.awt.geom.Rectangle2D;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.Set;
 
 import javax.swing.JFrame;
@@ -23,14 +25,28 @@ public class Main {
 	
 
     public static JGraphModelAdapter jgraphmodeladapter;
+	public static double p = 10;
+	public static double b = -3;
+	
     
    
 	
-	public static void main(String[] args){		
-		double p = 10;
-		double b = -3;
+	public static void main(String[] args){
 		
 		int playerNumber = 1;
+		
+		System.out.println("Please enter the player number: ");
+
+        Scanner in = new Scanner(System.in);
+        playerNumber = in.nextInt()-1;
+        
+        System.out.println("Please enter the 'b' value: (Must be negative) ");
+        b=in.nextInt();
+        
+
+        System.out.println("Please enter the 'p' value: (Must be bigger than 'b') ");
+        p=in.nextInt();
+        
 		
 		Node a = new Node("a");
 		tree.addVertex(a);

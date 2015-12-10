@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class-diagram version="1.1.9" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
-  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+<class-diagram version="1.1.9" icons="false" always-add-relationships="true" generalizations="true" realizations="true" 
+  associations="true" dependencies="true" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="backwardinduction.Edge" project="backwardinduction" 
     file="/backwardinduction/src/backwardinduction/Edge.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="595" y="230"/>    
+    <position height="110" width="103" x="549" y="155"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="backwardinduction.Main" project="backwardinduction" 
     file="/backwardinduction/src/backwardinduction/Main.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="599" y="427"/>    
+    <position height="-1" width="-1" x="522" y="391"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,8 +21,8 @@
   </class>  
   <class id="3" language="java" name="backwardinduction.Node" project="backwardinduction" 
     file="/backwardinduction/src/backwardinduction/Node.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="307" y="425"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+    <position height="-1" width="-1" x="768" y="392"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -31,21 +31,21 @@
   <class id="4" language="java" name="org.jgrapht.graph.DefaultWeightedEdge" project="backwardinduction" 
     file="C:/Users/Marton/workspace/backwardinduction/jgrapht-0.9.1/jgrapht-0.9.1/lib/jgrapht-core-0.9.1.jar" 
     binary="true" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="597" y="63"/>    
+    <position height="126" width="130" x="539" y="-14"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <dependency id="5">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="3"/>  
-  </dependency>  
-  <generalization id="6">    
+  <generalization id="5">    
     <end type="SOURCE" refId="1"/>    
     <end type="TARGET" refId="4"/>  
   </generalization>  
+  <dependency id="6">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
   <dependency id="7">    
     <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="1"/>  
