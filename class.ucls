@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="backwardinduction.Main" project="backwardinduction" 
     file="/backwardinduction/src/backwardinduction/Main.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="599" y="427"/>    
+    <position height="-1" width="-1" x="857" y="426"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="backwardinduction.Node" project="backwardinduction" 
     file="/backwardinduction/src/backwardinduction/Node.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="307" y="425"/>    
+    <position height="-1" width="-1" x="505" y="426"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -40,16 +40,16 @@
   </class>  
   <dependency id="5">    
     <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <dependency id="6">    
+    <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="3"/>  
   </dependency>  
-  <generalization id="6">    
+  <generalization id="7">    
     <end type="SOURCE" refId="1"/>    
     <end type="TARGET" refId="4"/>  
   </generalization>  
-  <dependency id="7">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="1"/>  
-  </dependency>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

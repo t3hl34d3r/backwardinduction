@@ -118,12 +118,35 @@ public class Main {
         Scanner in = new Scanner(System.in);
         playerNumber = in.nextInt()-1;
         
+        if (playerNumber>4 || playerNumber<1){
+        	System.out.println("Player Number must be between 1 and 4");
+        	System.out.println("Please enter the player number: ");
+        	playerNumber = in.nextInt()-1;
+        	while (playerNumber>3 || playerNumber<0){
+            	System.out.println("Player Number must be between 1 and 4");
+            	System.out.println("Please enter the player number: ");
+            	playerNumber = in.nextInt()-1;
+        	}
+        }
+        
         System.out.println("Please enter the 'b' value: (Must be negative) ");
         b=in.nextInt();
+        while (b>=0){
+        	System.out.println("'b' must be negative");
+        	System.out.println("Please enter the 'b' value: ");
+            b=in.nextInt();
+        	
+        }
         
 
         System.out.println("Please enter the 'p' value: (Must be bigger than 'b') ");
         p=in.nextInt();
+        
+        while(p<=b){
+        	System.out.println("'p' must be bigger than 'b'");
+        	System.out.println("Please enter the 'p' value: ");
+        	p=in.nextInt();
+        }
         
 	}
 	
