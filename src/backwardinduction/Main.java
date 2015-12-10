@@ -27,14 +27,92 @@ public class Main {
     public static JGraphModelAdapter jgraphmodeladapter;
 	public static double p = 10;
 	public static double b = -3;
+	public static int playerNumber = 1;
 	
     
    
 	
 	public static void main(String[] args){
+		userComm();		
+		drawGraph();		
+		getBestOutcomeForPlayer();		
+	}
+	
+	private static void getBestOutcomeForPlayer(){
+		Node best = getBestOutcomeLeaf(getLeafs(),playerNumber);
+        
+        System.out.println("Best possible outcome, for "+playerNumber+":");
+        
+        System.out.println(best);
+        Node next = best;
+        while (getParent(next) != null){
+        	next = getParent(next);
+        	System.out.println(next);
+        }
+        
+        System.out.println("Here he win "+p);
+	}
+	
+	public static boolean isLeaf(Node n){
+		if (tree.outgoingEdgesOf(n).isEmpty())
+			return true;
+		return false;
+	}
+	
+	public static Set<Node> getLeafs(){
+		Set<Node> leafs = new HashSet<Node>();
+		for(Iterator<Node> it = tree.vertexSet().iterator(); it.hasNext(); ){
+			Node n = it.next();
+			if (isLeaf(n))
+				leafs.add(n);
+		}
+		return leafs;
+			
+	}
+	
+	public static Node getBestOutcomeLeaf(Set<Node> leafs, int player){
+		Iterator<Node> it1 = leafs.iterator();
+		double max =it1.next().getOutcome()[player];
+		Node best = new Node();
+		for(Iterator<Node> it = leafs.iterator(); it.hasNext(); ){
+			Node n = it.next();
+			if(n.getOutcome()[player]>=max){
+				best = n;
+				max=n.getOutcome()[player];
+			}
+		}
+		return best;
+	}
+	
+	public static Node getParent(Node n){
+		Iterator<Edge> it = tree.incomingEdgesOf(n).iterator();
+		if (it.hasNext()){
+			Edge edge = it.next();
+			Node parent = tree.getEdgeSource(edge);
+			return parent;
+		}
+		return null;
+	}
+	
+	private static void positionVertexAt(Object vertex, int x, int y){
+		DefaultGraphCell cell = jgraphmodeladapter.getVertexCell(vertex);
+		AttributeMap attr = cell.getAttributes();
+		Rectangle2D bounds = GraphConstants.getBounds(attr);
 		
-		int playerNumber = 1;
+		Rectangle2D newBounds = new Rectangle2D.Double(x,y,bounds.getWidth(),bounds.getHeight());
 		
+		GraphConstants.setBounds(attr, newBounds);
+		
+		org.jgraph.graph.AttributeMap cellAttr = new AttributeMap();
+		cellAttr.put(cell, attr);
+		jgraphmodeladapter.edit(cellAttr,null,null,null);
+		
+
+		
+	}
+	
+	private static void userComm(){
+
 		System.out.println("Please enter the player number: ");
 
         Scanner in = new Scanner(System.in);
@@ -47,7 +125,9 @@ public class Main {
         System.out.println("Please enter the 'p' value: (Must be bigger than 'b') ");
         p=in.nextInt();
         
-		
+	}
+	
+	private static void drawGraph(){
 		Node a = new Node("a");
 		tree.addVertex(a);
 		
@@ -291,80 +371,6 @@ public class Main {
         frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
         frame.getContentPane().add(jgraph);
         frame.setVisible(true);
-        
-        Node best = getBestOutcomeLeaf(getLeafs(),playerNumber);
-        
-        System.out.println("Best possible outcome, for "+playerNumber+":");
-        
-        System.out.println(best);
-        Node next = best;
-        while (getParent(next) != null){
-        	next = getParent(next);
-        	System.out.println(next);
-        }
-        
-        System.out.println("Here he win "+p);
-
-       
-		
-	}
-	
-	public static boolean isLeaf(Node n){
-		if (tree.outgoingEdgesOf(n).isEmpty())
-			return true;
-		return false;
-	}
-	
-	public static Set<Node> getLeafs(){
-		Set<Node> leafs = new HashSet<Node>();
-		for(Iterator<Node> it = tree.vertexSet().iterator(); it.hasNext(); ){
-			Node n = it.next();
-			if (isLeaf(n))
-				leafs.add(n);
-		}
-		return leafs;
-			
-	}
-	
-	public static Node getBestOutcomeLeaf(Set<Node> leafs, int player){
-		Iterator<Node> it1 = leafs.iterator();
-		double max =it1.next().getOutcome()[player];
-		Node best = new Node();
-		for(Iterator<Node> it = leafs.iterator(); it.hasNext(); ){
-			Node n = it.next();
-			if(n.getOutcome()[player]>=max){
-				best = n;
-				max=n.getOutcome()[player];
-			}
-		}
-		return best;
-	}
-	
-	public static Node getParent(Node n){
-		Iterator<Edge> it = tree.incomingEdgesOf(n).iterator();
-		if (it.hasNext()){
-			Edge edge = it.next();
-			Node parent = tree.getEdgeSource(edge);
-			return parent;
-		}
-		return null;
-	}
-	
-	private static void positionVertexAt(Object vertex, int x, int y){
-		DefaultGraphCell cell = jgraphmodeladapter.getVertexCell(vertex);
-		AttributeMap attr = cell.getAttributes();
-		Rectangle2D bounds = GraphConstants.getBounds(attr);
-		
-		Rectangle2D newBounds = new Rectangle2D.Double(x,y,bounds.getWidth(),bounds.getHeight());
-		
-		GraphConstants.setBounds(attr, newBounds);
-		
-		org.jgraph.graph.AttributeMap cellAttr = new AttributeMap();
-		cellAttr.put(cell, attr);
-		jgraphmodeladapter.edit(cellAttr,null,null,null);
-		
-
-		
 	}
 	
 }
